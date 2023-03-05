@@ -33,26 +33,24 @@ def compute_height(n, parents):
 
 def main():
     # implement input form keyboard and from files
-    run = True
-    while run:
 
-          choose = input()
-          if choose == "F":
-              filename = input()
-              if "a" not in filename:
-                  with open(filename + ".txt", "r", encoding="utf-8") as file:
-                      n = int(file.readline())
-                      parents = list(map(int, file.readline().split()))
-                      answer = compute_height(n, parents)
-                      print(answer)
-                      run = False
-          elif choose == "I":
+
+  choose = input("INPUT I OR F: ")
+  if choose == "F":
+    filename = input()
+    if "a" not in filename:
+        with open(filename, "r", encoding="utf-8") as file:
+            n = int(file.readline())
+            parents = list(map(int, file.readline().split()))
+            answer = compute_height(n, parents)
+            print(answer)
+    elif choose == "I":
  
-              n = int(input())
-              parents = list(map(int, input().split()))
-              answer = compute_height(n, parents)
-              print(answer)
-              run = False
+      n = int(input("INPUT NUM OF NODES: "))
+      parents = list(map(int, input().split()))
+      answer = compute_height(n, parents)
+      print(answer)
+
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
     
@@ -66,5 +64,5 @@ def main():
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
-main()
+#main()
 # print(numpy.array([1,2,3]))
