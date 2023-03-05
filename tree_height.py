@@ -26,17 +26,13 @@ def compute_height(n, parents):
             node = queue.pop(0)
             if node in children:
                 queue += children[node]
-
-
     return max_height
 
 
 def main():
     # implement input form keyboard and from files
-
-
   choose = input()
-  if "F" in choose or "f" in choose:
+  if "F" in choose:
     filename = input()
     if "a" not in filename:
         with open("test/" + filename, 'r') as file:
@@ -44,8 +40,7 @@ def main():
             parents = list(map(int, file.readline().split()))
             answer = compute_height(n, parents)
             print(answer)
-  elif "I" in choose or "i" in choose:
- 
+  elif "I" in choose:
       n = int(input())
       parents = list(map(int, input().split(" ")))
       answer = compute_height(n, parents)
