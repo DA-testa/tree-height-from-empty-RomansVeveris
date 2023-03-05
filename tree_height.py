@@ -39,12 +39,12 @@ def main():
   if "F" in choose or "f" in choose:
     filename = input()
     if "a" not in filename:
-        with open("test/" + filename, "r") as file:
+        with open("test/" + filename, 'r') as file:
             n = int(file.readline())
             parents = list(map(int, file.readline().split()))
             answer = compute_height(n, parents)
             print(answer)
-    elif "I" in choose or "i" in choose:
+  elif "I" in choose or "i" in choose:
  
       n = int(input())
       parents = list(map(int, input().split(" ")))
