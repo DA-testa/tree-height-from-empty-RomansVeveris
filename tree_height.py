@@ -46,11 +46,14 @@ def main():
                     print(answer)
                     run = False
         elif choose == "I":
-            n = int(input())
-            parents = list(map(int, input().split()))
-            answer = compute_height(n, parents)
-            print(answer)
-            run = False
+            try:
+                n = int(input())
+                parents = list(map(int, input().split()))
+                answer = compute_height(n, parents)
+                print(answer)
+                run = False
+            except EOFError:
+                print("Invalid input")
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
     
