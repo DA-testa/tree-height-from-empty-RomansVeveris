@@ -9,28 +9,33 @@ def compute_height(n, parents):
     # Write this function
     max_height = 0
     # Your code here
-    heights = [0] * n
-    for i in range(n):
-        if heights[i] != 0:
-            continue
-        height = 0
-        j = i
-        while j != -1:
-            if heights[j] != 0:
-                break
-            heights[j] = height
-            height += 1
-            j = parents[j]
+    children = {}
 
-    max_height = max(heights)
-    return max_height + 1
+    for i in range(n):
+        parent = parents[i]
+        if parent not in children:
+            children[parent] = []
+        children[parent].append(i)
+
+    root = parents.index(-1)
+    max_height = 0
+    queue = [root]
+    while queue:
+        max_height += 1
+        for i in range(len(queue)):
+            node = queue.pop(0)
+            if node in children:
+                queue += children[node]
+
+
+    return max_height
 
 
 def main():
     # implement input form keyboard and from files
     run = True
     while run:
-        choose = input()
+        choose = input("INPUT I OR F: ")
         if choose == "F":
             filename = input()
             if "a" not in filename:
@@ -41,7 +46,7 @@ def main():
                     print(answer)
                     run = False
         elif choose == "I":
-            n = int(input())
+            n = int(input("INPUT NUM OF NODES: "))
             parents = list(map(int, input().split()))
             answer = compute_height(n, parents)
             print(answer)
