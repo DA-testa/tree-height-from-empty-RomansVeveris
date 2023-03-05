@@ -39,7 +39,7 @@ def main():
   if "F" in choose or "f" in choose:
     filename = input()
     if "a" not in filename:
-        with open(filename + ".txt", "r", encoding="utf-8") as file:
+        with open("\\test\" + filename, "r", encoding="utf-8") as file:
             n = int(file.readline())
             parents = list(map(int, file.readline().split()))
             answer = compute_height(n, parents)
