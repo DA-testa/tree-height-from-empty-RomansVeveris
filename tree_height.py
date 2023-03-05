@@ -44,7 +44,7 @@ def main():
             parents = list(map(int, file.readline().split()))
             answer = compute_height(n, parents)
             print(answer)
-    elif if "F" in choose or "f" in choose:
+    elif "F" in choose or "f" in choose:
  
       n = int(input())
       parents = list(map(int, input().split()))
