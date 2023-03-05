@@ -36,7 +36,7 @@ def main():
 
 
   choose = input()
-  if "F" in choose or "i" in choose:
+  if "F" in choose or "f" in choose:
     filename = input()
     if "a" not in filename:
         with open(filename, "r", encoding="utf-8") as file:
