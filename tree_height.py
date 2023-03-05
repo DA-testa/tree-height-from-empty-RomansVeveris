@@ -47,7 +47,7 @@ def main():
     elif "I" in choose or "i" in choose:
  
       n = int(input())
-      parents = list(map(int, input().split()))
+      parents = list(map(int, input().split(" ")))
       answer = compute_height(n, parents)
       print(answer)
 
