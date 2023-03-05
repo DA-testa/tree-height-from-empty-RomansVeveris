@@ -30,7 +30,7 @@ def main():
     # implement input form keyboard and from files
     run = True
     while run:
-        choose = input("INPUT I OR F: ")
+        choose = input()
         if choose == "F":
             filename = input()
             if "a" not in filename:
@@ -41,7 +41,7 @@ def main():
                     print(answer)
                     run = False
         elif choose == "I":
-            n = int(input("INPUT NUM OF NODES: "))
+            n = int(input())
             parents = list(map(int, input().split()))
             answer = compute_height(n, parents)
             print(answer)
