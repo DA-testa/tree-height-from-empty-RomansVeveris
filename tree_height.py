@@ -14,41 +14,38 @@ def compute_height(n, parents):
         if heights[i] != 0:
             continue
         height = 0
-
-        while i != -1:
-            if heights[i] != 0:
-                height += heights[i]
-                break
-            height += 1
-            i = parents[i]
-
         j = i
         while j != -1:
             if heights[j] != 0:
                 break
             heights[j] = height
-            height -= 1
+            height += 1
             j = parents[j]
+
     max_height = max(heights)
-    return max_height
+    return max_height + 1
 
 
 def main():
     # implement input form keyboard and from files
-    choose = input()
-    if choose == "F":
-        filename = input()
-        if "a" not in filename:
-            with open(filename, "r", encoding="utf-8") as file:
-                n = int(file.readline())
-                parents = list(map(int, file.readline().split()))
-                answer = compute_height(n, parents)
-                print(answer)
-    elif choose == "I":
-        n = int(input())
-        parents = list(map(int, input().split()))
-        answer = compute_height(n, parents)
-        print(answer)
+    run = True
+    while run:
+        choose = input("INPUT I OR F: ")
+        if choose == "F":
+            filename = input()
+            if "a" not in filename:
+                with open(filename, "r", encoding="utf-8") as file:
+                    n = int(file.readline())
+                    parents = list(map(int, file.readline().split()))
+                    answer = compute_height(n, parents)
+                    print(answer)
+                    run = False
+        elif choose == "I":
+            n = int(input("INPUT NUM OF NODES: "))
+            parents = list(map(int, input().split()))
+            answer = compute_height(n, parents)
+            print(answer)
+            run = False
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
     
@@ -62,5 +59,5 @@ def main():
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
-main()
+#main()
 # print(numpy.array([1,2,3]))
