@@ -35,25 +35,27 @@ def main():
     # implement input form keyboard and from files
     run = True
     while run:
-        choose = input()
-        if choose == "F":
-            filename = input()
-            if "a" not in filename:
-                with open(filename, "r", encoding="utf-8") as file:
-                    n = int(file.readline())
-                    parents = list(map(int, file.readline().split()))
-                    answer = compute_height(n, parents)
-                    print(answer)
-                    run = False
-        elif choose == "I":
-            try:
-                n = int(input())
+        try:
+            choose = input("INPUT I OR F: ")
+            if choose == "F":
+                filename = input()
+                if "a" not in filename:
+                    with open(filename, "r", encoding="utf-8") as file:
+                        n = int(file.readline())
+                        parents = list(map(int, file.readline().split()))
+                        answer = compute_height(n, parents)
+                        print(answer)
+                        run = False
+            elif choose == "I":
+ 
+                n = int(input("INPUT NUM OF NODES: "))
                 parents = list(map(int, input().split()))
                 answer = compute_height(n, parents)
                 print(answer)
                 run = False
-            except EOFError:
-                print("Invalid input")
+        except EOFError:
+            print("Invalid input")
+            run = False
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
     
