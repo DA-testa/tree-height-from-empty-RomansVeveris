@@ -36,7 +36,7 @@ def main():
 
 
   choose = input()
-  if choose == "F":
+  if "I" in choose or "i" in choose:
     filename = input()
     if "a" not in filename:
         with open(filename, "r", encoding="utf-8") as file:
@@ -44,7 +44,7 @@ def main():
             parents = list(map(int, file.readline().split()))
             answer = compute_height(n, parents)
             print(answer)
-    elif choose == "I":
+    elif if "F" in choose or "f" in choose:
  
       n = int(input())
       parents = list(map(int, input().split()))
